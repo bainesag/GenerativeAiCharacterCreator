@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<!-- nothing important just the header/page stuff -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Character Creator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat Subrayada' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Orelega One' rel='stylesheet'>
+</head>
+
+<!-- here starts the actual code -->
+<body>
+  <center>
+    <form action="/submit" method="post" id = "characterform" required> <!-- form start -->
+      <table style = "table-layout:fixed;" id = "originaltable"> <!-- table start -->
+        <tbody>
+          <tr>
+            <th colspan="3" id = "title">AI CHARACTER GENERATOR</th>
+          </tr>
+          <tr>
+            <!-- description + traits -->
+                      
+          </tr>
+          <tr>
+            <td>
+            <table id = secondColumn>
+            <td id = "genderTd" class = "seccolone">
+              <div id = "traitbox">
+              <!-- gender option; much like above look for something that forces people to pick
+              a gender. was gonna name it presentation but im worried that might be a bit too
+            wordy-->
+              <label for="gender">CHOOSE A GENDER:</label>
+                  <select name="gender" class = "selectrole" id="gender" onchange="UpdateDetails()" required>
+                    <option value="none">None</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="nonbinary">Nonbinary</option>
+                  </select>
+                  </div>
+          <tr>
+            <td class = "seccoltwo">
+              <div id = "traitbox">
+                <!-- allowing people to pick the first trait, and so on-->
+                <label for="first-trait">BODY TYPE:</label>
+                <select name="BodyType" class = "selectrole" id="BodyType" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Thin">Thin</option>
+                  <option value="Average">Average</option>
+                  <option value="Fat">Overweight</option>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "seccolone">
+              <div id = "traitbox">
+                <label for="second-trait">HAIR:</label>
+                <select name="Hair" class = "selectrole" id="Hair" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Brown">Brown</option>
+                  <option value="Blonde">Blonde</option>
+                  <option value="Red">Red</option>
+                  <option value="Black">Black</option>
+                  <option value="Colored">Coloured</option>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "seccoltwo">
+              <div id = "traitbox">
+                <label for="third-trait">EYES:</label>
+                <select name="Eyes" class = "selectrole" id="Eyes" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Blue">Blue</option>
+                  <option value="Green">Green</option>
+                  <option value="Brown">Brown</option>
+                  <option value="Black">Black</option>
+                  <option value="Heterochromic">Heterochromia</option>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "seccolone">
+              <div id = "traitbox">
+                <label for="fourth-trait">CLOTHING STYLE:</label>
+                <select name="Clothing" class = "selectrole" id="Clothing" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Professional">Professional</option>
+                  <option value="Casual">Casual</option>
+                  <option value="Urban">Urban</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Sci-fi">Sci-fi</option>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "seccoltwo">
+              <div id = "traitbox">
+                <label for="fifth-trait">ETHNICITY:</label>
+                <select name="Ethnicity" class = "selectrole" id="Ethnicity" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Asian">Asian</option>
+                  <option value="Black">Black</option>
+                  <option value="Mixed">Mixed</option>
+                  <option value="White">White</option>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class = "seccolone">
+              <div id = "traitbox">
+                <label for="sixth-trait">JOB:</label>
+                <select name="Job" class = "selectrole" id="Job" style = "position: relative" onchange="UpdateDetails()" required>
+                  <option value="none">None</option>
+                  <option value="Enginer">Enginer</option>
+                  <option value="CEO">CEO</option>
+                  <option value="Firefighter">Firefighter</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Doctor">Doctor</option>
+                  <option value="Nurse">Nurse</option>
+                  <option value="Fashion Designer">Fashion Designer</option>
+              </div>
+            </td>
+          </tr>
+        </tr>
+
+        </table>
+      </td>
+      <td rowspan="8">
+        <!--
+        <table id="firstColumn">
+            <tr rowspan = 2 height = "15%" class="heading" id = "topborder">
+              <td id = "rolesel">
+                    //role selection
+                    //note to self; look into how to make it so that there's an automatic null statement
+                    which will not allow people to submit their forms if not chosen correctly
+                    <label for="role">CHOOSE A ROLE:</label>
+                    <select name="role" class = "selectrole" id="role" onchange="UpdateDetails()" required>
+                      <option value="default">Pick an option...</option>
+                      <option value="leader">Leader</option>
+                      <option value="heart">Heart</option>
+                      <option value="brains">Brains</option>
+                      <option value="brawn">Brawn</option>
+                    </select>
+              </td>
+            <tr class = "heading">
+              <td> ROLE DESCRIPTION:</td>
+            </tr>
+            </tr>
+            <tr class = "headingdesc">
+                <td id="description"></td>
+            </tr>
+            <tr class="heading">
+                <td >COMMON TRAITS:</td>
+            </tr>
+            <tr class = "headingdesc">
+                <td id="commontraits"></td>
+            </tr>
+            <tr class="heading">
+                <td >UNCOMMON TRAITS:</td>
+            </tr>
+            <tr class = "headingdesc">
+                <td id="uncommontraits"></td>
+            </tr>
+            <tr class = "traitchoose">
+              <td>
+                <div id = "traitInput">
+                  <label for="seventh-trait">CHOOSE 3 TRAITS:</label>
+                  <input type="text" id="traitseven" name="traitseven" required>
+                </div>
+              </td>
+            </tr>
+        </table>
+      -->
+
+      <table id="firstColumn">
+        <tr rowspan = 2 height = "15%" class="heading" id = "topborder">
+          <td colspan = 2 id = "posetitle">
+            <label for="pose"> CHOOSE A POSE: </label>
+          </td>
+        </tr>
+        <centre>
+          <tr class = "poseselection">
+            <td id = "posesel">
+              <button class = "buttons" id = "poseone" onclick=getPose(id)><img class="poseImg" src = "Poses/HeartPose2.png"></button>
+              <button class = "buttons" id = "posetwo" onclick=getPose(id)><img class="poseImg" src = "Poses/BrawnPose1.png"></button>
+              <button class = "buttons" id = "posethree" onclick=getPose(id)><img class="poseImg" src = "Poses/BrainsPose1.png"></button>
+            </td>
+            <td>
+              <button class = "buttons" id = "posefour" onclick=getPose(id)><img  class="poseImg" src = "Poses/LeaderPose1.png"></button>
+              <button class = "buttons" id = "posefive" onclick=getPose(id)><img class="poseImg" src = "Poses/TPose.png"></button>
+              <button class = "buttons" id = "posesix" onclick=getPose(id)><img class="poseImg" src = "Poses/Yawn.png"></button>
+            </td>
+          </tr>
+          </centre>
+    </table>
+      </td>
+      <td>
+        <table id = "thirdColumn">
+          <tr>
+          <td rowspan="8">
+            <img src="https://www.thames-exams.co.uk/wp-content/uploads/2018/01/Placeholder.png" style="max-width:100%; height:auto; object-fit: fill;" alt="Currently a placeholder" id = "generatedimg">
+          </td>  
+          </tr>
+        </table>
+      </td>
+        </tbody>
+      </table>
+        <input id="submitButton" type="button" value="Submit" onclick = "getData()">
+    </form>
+</body>
+</table>
+
+<!-- html end-->
+<!-- javascript start-->
+
+<!-- run the function so that multiple things can be updated at the same time
+each function described has another set of text it displays when called-->
+<script>
+  function UpdateDetails() {
+    Descriptions();
+    CommonTraits();
+    UncommonTraits();
+  }
+
+  function Descriptions() {
+    var roleSelect = document.getElementById("role");
+    var roleDesc = document.getElementById("description");
+
+    var currentRole = roleSelect.value;
+
+    var descriptions = {
+      "leader": "The Leader is the one the party follows. They should be able to inspire the others to be brave and defeat the villains coming in their path.",
+      "heart": "The Heart is the soul of the group, the optimist who always tries to see the good in others and encourage them to do well",
+      "brains": "The Brains is the smart one of the group, always looking at things logically and trying to provide a solution to problems.",
+      "brawn": "The Brawns is the powerhouse of the group, the person always ready to fight and protect those who cannot protect themselves."
+    };
+
+    roleDesc.textContent = descriptions[currentRole];
+  }
+</script>
+
+<script>
+
+  var poseStr = "Pose1"
+
+  function CommonTraits() {
+    var commonSelect = document.getElementById("role");
+    var commontraitsDesc = document.getElementById("commontraits");
+
+    var currentRole = commonSelect.value;
+
+    var commontraits = {
+      "leader": "courageous, brave, inspiring, optimistic",
+      "heart": "placeholder heart",
+      "brains": "placeholder brains",
+      "brawn": "placeholder brawn"
+    };
+
+    commontraitsDesc.textContent = commontraits[currentRole];
+  }
+</script>
+
+<script>
+  function UncommonTraits() {
+    var uncommonSelect = document.getElementById("role");
+    var uncommontraitsDesc = document.getElementById("uncommontraits");
+
+    var currentRole = uncommonSelect.value;
+
+    var uncommontraits = {
+      "leader": "placeholder leader neg",
+      "heart": "placeholder heart neg",
+      "brains": "placeholder brains neg",
+      "brawn": "placeholder brawn neg"
+    };
+
+    uncommontraitsDesc.textContent = uncommontraits[currentRole];
+  }
+</script>
+
+
+<!-- grab the data submitted through the form -->
+<script>
+  async function getData()
+  {
+    console.log(poseStr)
+    var submitButton = document.getElementById("submitButton");
+    submitButton.disabled = true
+    document.body.style.cursor = "progress"
+    try{
+
+    
+    var form = document.getElementById("characterform");
+
+    var pose = poseStr;
+    console.log("Pose chosen: ", poseStr);
+    var gender = document.getElementById("gender").value;
+    console.log("Gender assigned: ", gender);
+    var traitone = document.getElementById("BodyType").value;
+    console.log("First trait: ", traitone);
+    var traittwo = document.getElementById("Hair").value;
+    console.log("Second trait: ", traittwo);
+    var traitthree = document.getElementById("Eyes").value;
+    console.log("Third trait: ", traitthree);
+    var traitfour = document.getElementById("Clothing").value;
+    console.log("Fourth trait: ", traitfour);
+    var traitfive = document.getElementById("Ethnicity").value;
+    console.log("Fifth trait: ", traitfive);
+    var traitsix = document.getElementById("Job").value;
+    console.log("Sixth trait: ", traitsix);
+
+
+    var submittedData = 
+    {
+      pose: pose,
+      gender: gender,
+      traits:[traitone,traittwo,traitthree,traitfour,traitfive,traitsix]
+    }
+    console.log(submittedData)
+    var jsonData = JSON.stringify(submittedData);
+    console.log(jsonData);
+    let response = await fetch("http://localhost:8080", {
+      mode:"cors",
+      headers: {
+        'Content-type':"text/plain"
+        },
+      method:"POST",
+      body:jsonData
+    });
+    img = await response.blob()
+    //var image = new Image();
+    imageURL = URL.createObjectURL(img);
+    document.getElementById("generatedimg").src = imageURL
+    submitButton.disabled = false
+    document.body.style.cursor = "default"
+  }
+  catch
+  {
+    submitButton.disabled = false
+    document.body.style.cursor = "default"
+  }
+  }
+</script>
+
+<script>
+  async function getPose(pose) 
+  {
+    // Prevent the form from submitting immediately
+    event.preventDefault();
+    console.log(pose)
+
+    poseStr = pose;
+    console.log(poseStr); 
+
+    // Submit the form
+    //document.getElementById("poseSubmit").submit();
+  }
+
+  // Add an event listener to the form to prevent default submission behavior
+  document.getElementById("poseSubmit").addEventListener("submit", function(event) {
+    event.preventDefault();
+  });
+</script>
+
+</body>
+</html>

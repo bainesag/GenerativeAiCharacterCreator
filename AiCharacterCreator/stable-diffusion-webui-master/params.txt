@@ -1,0 +1,3 @@
+A clear high quality image of A strategic genious, they are a White female with a Fat body type, Blonde hair, Green eyes wearing Sci-fi style clothes. They are a Enginer
+Negative prompt:  text, easynegative, naked, explicit, nude, gore, bleeding, exposed, unsafe
+Steps: 30, Sampler: Euler, CFG scale: 7.0, Seed: 137756556, Size: 512x896, Model hash: e1441589a6, Model: v1-5-pruned, ControlNet 0: "Module: none, Model: control_v11p_sd15_openpose [cab727d4], Weight: 1.0, Resize Mode: ResizeMode.INNER_FIT, Low Vram: False, Guidance Start: 0.0, Guidance End: 1.0, Pixel Perfect: True, Control Mode: 2, Hr Option: HiResFixOption.BOTH, Save Detected Map: True", Version: 1.7.0

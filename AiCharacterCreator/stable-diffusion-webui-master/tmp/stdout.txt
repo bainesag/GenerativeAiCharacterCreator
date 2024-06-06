@@ -1,0 +1,8 @@
+ Volume in drive C is OS
+ Volume Serial Number is C4E3-3335
+
+ Directory of C:\Users\alexa\Documents\IndustryProject\AiCharacterCreator\stable-diffusion-webui-master\venv\Scripts
+
+20/02/2024  14:37           266,616 python.exe
+               1 File(s)        266,616 bytes
+               0 Dir(s)  522,447,740,928 bytes free

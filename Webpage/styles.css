@@ -1,0 +1,302 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background: rgb(128,8,0);
+    background: linear-gradient(270deg, rgba(128, 9, 0, 0.719) 0%, rgba(230,117,109,1) 70%);
+}
+
+#title
+{
+    font-family: 'Montserrat Subrayada'; 
+    font-size: 50px;
+    -webkit-text-stroke: 0.5px white;
+    color: #550505;
+}
+
+#originaltable {
+    width: 80%;
+    border-collapse: collapse;
+    min-width: max-content;
+  }
+
+/**#firstcolumn, td
+{
+    border: 4px solid #550505;
+    border-radius: 10px;
+  }
+
+#secondcolumn, td 
+{
+    border: 4px solid #550505;
+    border-radius: 10px;
+  }**/
+
+/** change all the select buttons **/
+
+.selectrole
+{
+    font-family: 'Lucida Console';
+    background-color: #EAC7C7;
+    font-size: 1vw;
+    width: 10vw;
+    height: 5vh;
+    border-color: transparent transparent #fff transparent;
+}
+
+/** first column CSS **/
+#description 
+{
+    clear: both;
+}
+
+#description2 {
+    float: left;
+}
+
+#rolesel {
+    background: #9E5858;
+    color: #421e1e;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Lucida Console';
+    font-weight: bold;
+    font-size: 1vw;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 10vh;
+}
+
+@media screen and (max-width: 600px) {
+    #rolesel {
+        font-size: 2vw;
+    }
+}
+
+#firstColumn {
+    width: 100%;
+    height: 84.4vh;
+    border: 4px solid #a34942;
+    border-radius: 10px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#firstColumn tr {
+    height: 14vh;
+}
+
+#firstColumn tr.heading 
+{
+    background-color: #BE7373;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Lucida Console';
+    font-weight: bold;
+    font-size: 1vw;
+    height: 7.1vh;
+}
+
+#firstColumn tr.headingdesc
+{
+    background-color: #db9d9d;
+    text-align: left;
+    color: #6a1111;
+    font-family: 'Verdana';
+    font-size: 0.8vw;
+}
+
+#firstColumn tr.traitchoose
+{
+    background: #9E5858;
+    color: #421e1e;
+    text-align: center;
+    font-family: 'Lucida Console';
+    font-weight: bold;
+    font-size: 1vw;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    height: 10.1vh;
+}
+
+#firstColumn tr.poseselection 
+{
+    width: 26vw;
+    border: 3px solid black;
+}
+
+.buttons
+{
+    left: 2vw;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: center;
+    max-width: 10vw;
+}
+
+.poseImg
+{
+    max-width: 100%;
+    height: auto;
+}
+
+/** second column CSS **/
+
+#secondColumn tr {
+    height: 12vh;
+    width: 33vh;
+}
+
+#traitbox{
+    width:25.5vw;
+    height: 10vh;
+    position: relative;
+    top: 70%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+#secondColumn {
+    width: 100%;
+    height: 100%;
+    border: 4px solid #a34942;
+    border-radius: 10px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#secondColumn td.seccolone
+{
+    background-color: #b87676;
+    text-align: center;
+    color: #661a1a;
+    font-family: 'Lucida Console';
+    font-weight: bold;
+    font-size: 1vw;
+    height: 7vh;
+}
+
+#secondColumn td.seccoltwo
+{
+    background-color: #c68585;
+    text-align: center;
+    color: #661a1a;
+    font-weight: bold;
+    font-family: 'Lucida Console';
+    font-size: 1vw;
+    height: 7vh;
+}
+
+#genderTd {
+    background-color: #cbb0b0;
+}
+
+#role-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#role-wrapper:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+    display: none; /* Hide the arrow */
+}
+
+#role-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px; /* Adjust padding */
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(75, 27, 27); /* Set the text color */
+    font-family: 'Arial', sans-serif; /* Set the font */
+}
+
+#role-wrapper select-arrow-active:after 
+{
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+#role-wrapper select-items {
+    position: absolute;
+    font-weight: bold;
+    background-color: red;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: none;
+}
+
+#role-wrapper select-items div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#role-wrapper select-items div:hover,
+#role-wrapper select-items div.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#role-wrapper.select-active select-items {
+    display: block;
+}
+
+#submitButton {
+    background: #FFCD4E;
+    color: #893100;
+    border: 2px solid #FFCD4E;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    font: bold 15px 'Orelega One', sans-serif;
+    text-shadow: none;
+
+    transition: opacity 0.3s ease;
+}
+
+#submitButton:active {
+    opacity: 0.7;
+}
+
+#genderTd{
+    height: 5vh;
+}
+
+/** third column CSS **/
+
+img {
+    clear: left;
+}
+
+#thirdColumn {
+    width: 100%;
+    height: 84.4vh;
+    border: 4px solid #a34942;
+    border-radius: 10px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#thirdColumn img {
+    max-width: 100%;
+    height: 100%;
+}

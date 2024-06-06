@@ -1,0 +1,2 @@
+prompt,seed,width,height,sampler,cfgs,steps,filename,negative_prompt
+" <lora:animetarotV51:1>,  1boy, strong",181762249,512,896,DPM++ 2M Karras,7,20,00000-181762249.png," badhandv4 , easynegative, text"
